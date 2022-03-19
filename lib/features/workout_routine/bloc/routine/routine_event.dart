@@ -23,3 +23,11 @@ class GetRoutinesFromLocalDB extends RoutineEvent {
   @override
   List<Object?> get props => [];
 }
+
+class DeleteRoutinesFromLocalDB extends RoutineEvent {
+  final String id;
+  const DeleteRoutinesFromLocalDB(this.id);
+
+  @override
+  List<Object?> get props => [id];
+}

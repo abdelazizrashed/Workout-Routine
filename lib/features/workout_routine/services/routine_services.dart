@@ -15,7 +15,6 @@ class RoutineServices {
   }
 
   Future<List<RoutineModel>> getRoutines() async {
-    final db = Localstore.instance;
     var routinesJson = await db.collection('Routines').get();
     List<RoutineModel> routines = [];
     routinesJson?.forEach(
@@ -27,5 +26,10 @@ class RoutineServices {
     );
     routines.sort(((a, b) => a.name.compareTo(b.name)));
     return routines;
+  }
+
+  Future<List<RoutineModel>> deleteRoutine(String id) async {
+    await db.collection("Routines").doc(id).delete();
+    return await getRoutines();
   }
 }
