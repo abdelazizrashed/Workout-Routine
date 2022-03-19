@@ -95,6 +95,8 @@ class _WorkoutCardState extends State<WorkoutCard> {
                           // print(result.files.first.);
                           setState(() {
                             image = result.files.first;
+                            widget.workoutCardController.imgPath =
+                                image?.path ?? "";
                           });
                         }
                       },
@@ -146,6 +148,8 @@ class _WorkoutCardState extends State<WorkoutCard> {
                                     // print(result.files.first.);
                                     setState(() {
                                       image = result.files.first;
+                                      widget.workoutCardController.imgPath =
+                                          image?.path ?? "";
                                     });
                                   }
                                 },

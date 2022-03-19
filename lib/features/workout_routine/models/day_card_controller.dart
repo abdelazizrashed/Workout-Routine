@@ -5,6 +5,12 @@ class DayCardController {
   late List<WorkoutCardController> workoutCardControllers;
   late String dayName;
 
+  DayCardController() {
+    dayType = DayType.rest;
+    workoutCardControllers = [];
+    dayName = "Rest";
+  }
+
   DayModel toDayModel() {
     List<WorkoutModel> workouts = [];
     for (var controller in workoutCardControllers) {

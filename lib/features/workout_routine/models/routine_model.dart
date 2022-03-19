@@ -37,13 +37,13 @@ class RoutineModel {
   Map<String, dynamic> toJson() {
     return {
       "name": name,
-      "sat": sat,
-      "sun": sun,
-      "mon": mon,
-      "tue": tue,
-      "wed": wed,
-      "thu": thu,
-      "fri": fri,
+      "sat": sat.toJson(),
+      "sun": sun.toJson(),
+      "mon": mon.toJson(),
+      "tue": tue.toJson(),
+      "wed": wed.toJson(),
+      "thu": thu.toJson(),
+      "fri": fri.toJson(),
     };
   }
 }

@@ -53,10 +53,9 @@ class _AddRoutinePageState extends State<AddRoutinePage>
               padding: const EdgeInsets.all(20),
               child: OutlinedButton(
                 onPressed: () {
-                  var temp = satController.toDayModel();
-                  print(temp.toJson());
+                  //TODO: TRIGGER SAVE  EVENT HERE
                 },
-                child: Text("Save"),
+                child: const Text("Save"),
               ),
             ),
           ],

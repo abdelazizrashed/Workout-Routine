@@ -20,10 +20,14 @@ class DayModel {
   }
 
   Map<String, dynamic> toJson() {
+    var workoutsJson = [];
+    for (var workout in workouts) {
+      workoutsJson.add(workout.toJson());
+    }
     return {
       "dayName": dayName,
       "dayType": dayType,
-      "workouts": workouts,
+      "workouts": workoutsJson,
     };
   }
 }
