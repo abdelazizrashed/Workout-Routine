@@ -13,10 +13,8 @@ class RoutineBloc extends Bloc<RoutineEvent, RoutineState> {
   late RoutineServices routineServices;
   RoutineBloc() : super(RoutineIdle()) {
     routineServices = RoutineServices();
-    // on<RoutineEvent>((event, emit) {
-    //   // TODO: implement event handler
-    // });
     on<SaveRoutineInLocalDBEvent>(_onSaveRoutineInLocalDBEvent);
+    on<GetRoutinesFromLocalDB>(_onGetRoutinesFromLocalDB);
   }
 
   FutureOr<void> _onSaveRoutineInLocalDBEvent(
@@ -24,7 +22,14 @@ class RoutineBloc extends Bloc<RoutineEvent, RoutineState> {
     Emitter<RoutineState> emit,
   ) async {
     emit(RoutineLoading());
-    await routineServices.saveRoutineInLocalDB(event.routine);
-    emit(const RoutineSetSuccess());
+    var routines = await routineServices.saveRoutineInLocalDB(event.routine);
+    emit(RoutinesLoaded(routines));
+  }
+
+  Future<FutureOr<void>> _onGetRoutinesFromLocalDB(
+      GetRoutinesFromLocalDB event, Emitter<RoutineState> emit) async {
+    emit(RoutineLoading());
+    var routines = await routineServices.getRoutines();
+    emit(RoutinesLoaded(routines));
   }
 }

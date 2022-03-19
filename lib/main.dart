@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RoutineBloc(),
+      create: (context) => RoutineBloc()..add(const GetRoutinesFromLocalDB()),
       child: MaterialApp(
         title: 'Workout Routine',
         theme: ThemeData.dark(),

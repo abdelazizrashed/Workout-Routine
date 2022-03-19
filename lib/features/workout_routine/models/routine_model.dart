@@ -2,6 +2,7 @@ import 'package:workout_routine/features/workout_routine/models/models.dart';
 
 class RoutineModel {
   final String name;
+  final String id;
   final DayModel sat;
   final DayModel sun;
   final DayModel mon;
@@ -10,27 +11,29 @@ class RoutineModel {
   final DayModel thu;
   final DayModel fri;
 
-  RoutineModel(
-    this.name,
-    this.sat,
-    this.sun,
-    this.mon,
-    this.tue,
-    this.wed,
-    this.thu,
-    this.fri,
-  );
+  RoutineModel({
+    required this.name,
+    required this.sat,
+    required this.sun,
+    required this.mon,
+    required this.tue,
+    required this.wed,
+    required this.thu,
+    required this.fri,
+    this.id = "",
+  });
 
   static RoutineModel fromJson(Map<String, dynamic> json) {
     return RoutineModel(
-      json["name"],
-      json["sat"],
-      json["sun"],
-      json["mon"],
-      json["tue"],
-      json["wed"],
-      json["thu"],
-      json["fri"],
+      name: json["name"],
+      sat: DayModel.fromJson(json["sat"]),
+      sun: DayModel.fromJson(json["sun"]),
+      mon: DayModel.fromJson(json["mon"]),
+      tue: DayModel.fromJson(json["tue"]),
+      wed: DayModel.fromJson(json["wed"]),
+      thu: DayModel.fromJson(json["thu"]),
+      fri: DayModel.fromJson(json["fri"]),
+      id: json["id"],
     );
   }
 

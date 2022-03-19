@@ -12,10 +12,14 @@ class DayModel {
   });
 
   static DayModel fromJson(Map<String, dynamic> json) {
+    List<WorkoutModel> workouts = [];
+    for (var j in json["workouts"]) {
+      workouts.add(WorkoutModel.fromJson(j));
+    }
     return DayModel(
       dayName: json["dayName"],
-      dayType: json["dayType"],
-      workouts: json["workouts"],
+      dayType: json["isRest"] ? DayType.rest : DayType.workout,
+      workouts: workouts,
     );
   }
 
@@ -26,7 +30,7 @@ class DayModel {
     }
     return {
       "dayName": dayName,
-      "dayType": dayType,
+      "isRest": dayType == DayType.rest,
       "workouts": workoutsJson,
     };
   }
