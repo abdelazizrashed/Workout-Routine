@@ -1,0 +1,4 @@
+enum DayType{
+  workout,
+  rest,
+}
