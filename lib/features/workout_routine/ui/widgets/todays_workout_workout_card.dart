@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:workout_routine/features/workout_routine/models/models.dart';
 
+// ignore: must_be_immutable
 class TodaysWorkoutWorkoutCard extends StatelessWidget {
   final WorkoutModel workout;
   final Function(WorkoutModel) onCancel;

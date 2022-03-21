@@ -4,3 +4,5 @@ export 'day_model.dart';
 export 'routine_model.dart';
 export 'workout_card_controller.dart';
 export 'day_card_controller.dart';
+export "day_report_model.dart";
+export 'workout_report_model.dart';

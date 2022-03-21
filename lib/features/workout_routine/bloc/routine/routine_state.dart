@@ -14,11 +14,6 @@ class RoutineIdle extends RoutineState {}
 
 class RoutineFailure extends RoutineState {}
 
-// class RoutineSetSuccess extends RoutineState {
-//   const RoutineSetSuccess();
-//   @override
-//   List<Object> get props => [];
-// }
 
 class RoutinesLoaded extends RoutineState {
   final List<RoutineModel> routines;

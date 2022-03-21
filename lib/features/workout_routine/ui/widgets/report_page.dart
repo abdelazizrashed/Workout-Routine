@@ -5,10 +5,11 @@ class ReportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Report page",
-      ),
+    return Center(
+      child: TextButton(
+          onPressed: () async {
+          },
+          child: const Text("click")),
     );
   }
 }

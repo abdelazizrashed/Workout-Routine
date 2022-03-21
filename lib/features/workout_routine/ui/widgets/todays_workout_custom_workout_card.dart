@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// ignore: must_be_immutable
 class TodaysWorkoutCustomeWorkoutCard extends StatelessWidget {
   final Function(TodaysWorkoutCustomeWorkoutCard) onCancel;
   final Function(String, int, int, int, TodaysWorkoutCustomeWorkoutCard) onSave;

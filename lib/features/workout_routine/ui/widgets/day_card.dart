@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_routine/features/workout_routine/models/models.dart';
 import 'package:workout_routine/features/workout_routine/ui/widgets/widgets.dart';
 
+// ignore: must_be_immutable
 class DayCard extends StatefulWidget {
   late DayCardController dayCardController;
   final String day;

@@ -63,8 +63,7 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                       setState(() {
                         selectedRoutine = value!;
                       });
-                      switch (DateFormat.EEEE().format(
-                          DateTime.now().subtract(const Duration(days: 2)))) {
+                      switch (DateFormat.EEEE().format(DateTime.now())) {
                         case "Saturday":
                           setState(() {
                             workouts = selectedRoutine.sat.workouts;
@@ -115,7 +114,15 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                                 });
                               },
                               onSave: (sets, reps, weight, _workout) {
-                                //TODO: SAVE THE WEIGHTS
+                                var workoutReport = WorkoutReportModel(
+                                  name: _workout.name,
+                                  sets: sets,
+                                  reps: reps,
+                                  weight: weight,
+                                );
+                                BlocProvider.of<ReportBloc>(context).add(
+                                    SaveWorkoutReportInLocalDBEvent(
+                                        DateTime.now(), workoutReport));
                               },
                             ),
                           );
@@ -137,7 +144,15 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                         customWorkoutsCards.removeAt(index);
                       });
                     }, onSave: (name, sets, reps, weight, refrence) {
-                      //TODO: SAVE workout
+                      var workoutReport = WorkoutReportModel(
+                        name: name,
+                        sets: sets,
+                        reps: reps,
+                        weight: weight,
+                      );
+                      BlocProvider.of<ReportBloc>(context).add(
+                          SaveWorkoutReportInLocalDBEvent(
+                              DateTime.now(), workoutReport));
                     }));
                   });
                 },
