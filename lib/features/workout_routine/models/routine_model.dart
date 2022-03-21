@@ -49,4 +49,28 @@ class RoutineModel {
       "fri": fri.toJson(),
     };
   }
+
+  RoutineModel copyWith({
+    String? id_,
+    String? name_,
+    DayModel? sat_,
+    DayModel? sun_,
+    DayModel? mon_,
+    DayModel? tue_,
+    DayModel? wed_,
+    DayModel? thu_,
+    DayModel? fri_,
+  }) {
+    return RoutineModel(
+      id: id_ ?? id,
+      name: name_ ?? name,
+      sat: sat_ ?? sat,
+      sun: sun_ ?? sun,
+      mon: mon_ ?? mon,
+      tue: tue_ ?? tue,
+      wed: wed_ ?? wed,
+      thu: thu_ ?? thu,
+      fri: fri_ ?? fri,
+    );
+  }
 }

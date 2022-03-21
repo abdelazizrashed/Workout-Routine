@@ -15,6 +15,10 @@ class RouteGenerator {
         var routine = settings.arguments as RoutineModel;
         return MaterialPageRoute(
             builder: (_) => ViewRoutinePage(routine: routine));
+      case "/modify-routine":
+        var routine = settings.arguments as RoutineModel;
+        return MaterialPageRoute(
+            builder: (_) => ModifyRoutinePage(routine: routine));
       default:
         return MaterialPageRoute(builder: (_) => const HomePage());
     }

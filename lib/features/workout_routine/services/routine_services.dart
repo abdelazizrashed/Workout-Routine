@@ -14,6 +14,15 @@ class RoutineServices {
     return await getRoutines();
   }
 
+  Future<List<RoutineModel>> updateRoutineInLocalDB(
+      RoutineModel routine) async {
+    var json = routine.toJson();
+
+    // save the item
+    await db.collection('Routines').doc(routine.id).set(json);
+    return await getRoutines();
+  }
+
   Future<List<RoutineModel>> getRoutines() async {
     var routinesJson = await db.collection('Routines').get();
     List<RoutineModel> routines = [];

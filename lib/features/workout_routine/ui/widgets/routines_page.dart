@@ -63,13 +63,17 @@ class RoutinesPage extends StatelessWidget {
                       icon: Icons.delete,
                       label: 'Delete',
                     ),
-                    SlidableAction(
-                      onPressed: (context) {},
-                      backgroundColor: const Color(0xFF21B7CA),
-                      foregroundColor: Colors.white,
-                      icon: Icons.edit,
-                      label: 'Modify',
-                    ),
+                    //TODO: IMPLEMENT MODIFICATION FUNCTIONALITY
+                    // SlidableAction(
+                    //   onPressed: (context) {
+                    //     Navigator.of(context).pushNamed("/modify-routine",
+                    //         arguments: state.routines[index]);
+                    //   },
+                    //   backgroundColor: const Color(0xFF21B7CA),
+                    //   foregroundColor: Colors.white,
+                    //   icon: Icons.edit,
+                    //   label: 'Modify',
+                    // ),
                   ],
                 ),
               );

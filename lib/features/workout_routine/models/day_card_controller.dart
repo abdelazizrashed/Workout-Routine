@@ -5,10 +5,12 @@ class DayCardController {
   late List<WorkoutCardController> workoutCardControllers;
   late String dayName;
 
-  DayCardController() {
-    dayType = DayType.rest;
+  DayCardController({
+    this.dayType = DayType.rest,
+    workoutCardControllers = const [],
+    dayName = "Rest",
+  }) {
     workoutCardControllers = [];
-    dayName = "Rest";
   }
 
   DayModel toDayModel() {

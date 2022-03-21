@@ -7,3 +7,4 @@ export 'routines_page.dart';
 export "todays_workout_page.dart";
 export 'view_routine_day_subpage.dart';
 export 'report_workout_card.dart';
+export 'modify_day_card.dart';

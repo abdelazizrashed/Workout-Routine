@@ -16,6 +16,7 @@ class RoutineBloc extends Bloc<RoutineEvent, RoutineState> {
     on<SaveRoutineInLocalDBEvent>(_onSaveRoutineInLocalDBEvent);
     on<GetRoutinesFromLocalDB>(_onGetRoutinesFromLocalDB);
     on<DeleteRoutinesFromLocalDB>(_onDeleteRoutinesFromLocalDB);
+    on<UpdateRoutineInLocalDBEvent>(_onUpdateRoutineInLocalDBEvent);
   }
 
   FutureOr<void> _onSaveRoutineInLocalDBEvent(
@@ -40,6 +41,13 @@ class RoutineBloc extends Bloc<RoutineEvent, RoutineState> {
   ) async {
     emit(RoutineLoading());
     var routines = await routineServices.deleteRoutine(event.id);
+    emit(RoutinesLoaded(routines));
+  }
+
+  Future<FutureOr<void>> _onUpdateRoutineInLocalDBEvent(
+      UpdateRoutineInLocalDBEvent event, Emitter<RoutineState> emit) async {
+    emit(RoutineLoading());
+    var routines = await routineServices.updateRoutineInLocalDB(event.routine);
     emit(RoutinesLoaded(routines));
   }
 }

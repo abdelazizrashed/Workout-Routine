@@ -6,6 +6,13 @@ class WorkoutCardController {
   late int reps;
   late String imgPath = "";
 
+  WorkoutCardController({
+    this.name = "",
+    this.sets = 0,
+    this.reps = 0,
+    this.imgPath = "",
+  });
+
   WorkoutModel toWorkoutModel() {
     return WorkoutModel(sets, reps, name, imgPath);
   }

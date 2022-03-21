@@ -17,6 +17,15 @@ class SaveRoutineInLocalDBEvent extends RoutineEvent {
   List<Object?> get props => [routine];
 }
 
+class UpdateRoutineInLocalDBEvent extends RoutineEvent {
+  final RoutineModel routine;
+
+  const UpdateRoutineInLocalDBEvent(this.routine);
+
+  @override
+  List<Object?> get props => [routine];
+}
+
 class GetRoutinesFromLocalDB extends RoutineEvent {
   const GetRoutinesFromLocalDB();
 
