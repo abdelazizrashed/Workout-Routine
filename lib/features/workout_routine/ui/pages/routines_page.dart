@@ -28,7 +28,10 @@ class RoutinesPage extends StatelessWidget {
                   ),
                   child: ListTile(
                     onTap: () {
-                      //TODO: LOAD MODIFY ROUTINE PAGE
+                      Navigator.of(context).pushNamed(
+                        "/view-routine",
+                        arguments: state.routines[index],
+                      );
                     },
                     title: Center(
                       child: Text(
@@ -55,14 +58,14 @@ class RoutinesPage extends StatelessWidget {
                           ),
                         );
                       },
-                      backgroundColor: Color(0xFFFE4A49),
+                      backgroundColor: const Color(0xFFFE4A49),
                       foregroundColor: Colors.white,
                       icon: Icons.delete,
                       label: 'Delete',
                     ),
                     SlidableAction(
                       onPressed: (context) {},
-                      backgroundColor: Color(0xFF21B7CA),
+                      backgroundColor: const Color(0xFF21B7CA),
                       foregroundColor: Colors.white,
                       icon: Icons.edit,
                       label: 'Modify',
