@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:workout_routine/features/workout_routine/ui/pages/pages.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,7 +45,8 @@ class _HomePageState extends State<HomePage> {
               break;
             case 1:
               setState(() {
-                appBarTitle = "Today's Workout";
+                appBarTitle =
+                    "${DateFormat.EEEE().format(DateTime.now())}'s workout";
                 showFAB = false;
               });
               break;

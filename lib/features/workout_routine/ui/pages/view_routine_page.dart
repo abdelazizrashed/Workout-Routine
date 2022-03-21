@@ -4,7 +4,7 @@ import 'package:workout_routine/features/workout_routine/ui/pages/pages.dart';
 
 class ViewRoutinePage extends StatelessWidget {
   final RoutineModel routine;
-  ViewRoutinePage({Key? key, required this.routine}) : super(key: key);
+  const ViewRoutinePage({Key? key, required this.routine}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
