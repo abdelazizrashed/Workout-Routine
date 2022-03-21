@@ -1,20 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:workout_routine/features/workout_routine/models/models.dart';
 
-class TodaysWorkoutWorkoutCard extends StatelessWidget {
-  final WorkoutModel workout;
-  final Function(WorkoutModel) onCancel;
-  final Function(int, int, int, WorkoutModel) onSave;
-  TodaysWorkoutWorkoutCard({
+class TodaysWorkoutCustomeWorkoutCard extends StatelessWidget {
+  final Function(TodaysWorkoutCustomeWorkoutCard) onCancel;
+  final Function(String, int, int, int, TodaysWorkoutCustomeWorkoutCard) onSave;
+  TodaysWorkoutCustomeWorkoutCard({
     Key? key,
-    required this.workout,
     required this.onCancel,
     required this.onSave,
   }) : super(key: key);
 
+  TextEditingController nameController = TextEditingController();
   TextEditingController setsController = TextEditingController();
   TextEditingController repsController = TextEditingController();
   TextEditingController weightController = TextEditingController();
@@ -31,7 +27,7 @@ class TodaysWorkoutWorkoutCard extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    onCancel(workout);
+                    onCancel(this);
                   },
                   icon: Icon(
                     Icons.cancel_outlined,
@@ -42,14 +38,17 @@ class TodaysWorkoutWorkoutCard extends StatelessWidget {
             ),
             Center(
               child: Text(
-                workout.name,
+                "Custom workout",
                 style: Theme.of(context).textTheme.headline6,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Sets X Reps: ${workout.sets} X ${workout.reps}",
+              child: TextField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                  hintText: "Workout name",
+                ),
               ),
             ),
             Padding(
@@ -85,27 +84,19 @@ class TodaysWorkoutWorkoutCard extends StatelessWidget {
                 ),
               ),
             ),
-            workout.imgPath.isEmpty || workout.imgPath == " "
-                ? Container()
-                : Center(
-                    child: Image(
-                      image: FileImage(
-                        File(workout.imgPath),
-                      ),
-                    ),
-                  ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: OutlinedButton(
                   onPressed: () {
                     onSave(
+                      nameController.text,
                       int.parse(setsController.text),
                       int.parse(repsController.text),
                       int.parse(weightController.text),
-                      workout,
+                      this,
                     );
-                    onCancel(workout);
+                    onCancel(this);
                   },
                   child: const Text("Save"),
                 ),

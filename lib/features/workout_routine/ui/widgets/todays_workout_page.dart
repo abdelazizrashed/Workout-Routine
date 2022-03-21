@@ -27,6 +27,7 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
   List<RoutineModel> routines = [];
   List<WorkoutModel> workouts = [];
   List<TodaysWorkoutWorkoutCard> workoutsCards = [];
+  List<TodaysWorkoutCustomeWorkoutCard> customWorkoutsCards = [];
   @override
   Widget build(BuildContext context) {
     if (routines.isEmpty) routines.add(selectedRoutine);
@@ -43,12 +44,12 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
           if (routines.length <= 1) {
             routines = [selectedRoutine, ...state.routines];
           }
-          return Padding(
+          return ListView(
             padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
                   child: DropdownButton<RoutineModel>(
                     value: selectedRoutine,
                     items:
@@ -108,16 +109,13 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                               workout: workout,
                               onCancel: (_workout) {
                                 var index = workouts.indexOf(_workout);
-                                print(index);
                                 setState(() {
                                   workoutsCards.removeAt(index);
                                   workouts.removeAt(index);
                                 });
                               },
-                              onSave: (sets, reps, weight) {
-                                print(sets);
-                                print(reps);
-                                print(weight);
+                              onSave: (sets, reps, weight, _workout) {
+                                //TODO: SAVE THE WEIGHTS
                               },
                             ),
                           );
@@ -126,9 +124,26 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                     },
                   ),
                 ),
-                ...workoutsCards
-              ],
-            ),
+              ),
+              ...workoutsCards,
+              ...customWorkoutsCards,
+              OutlinedButton(
+                onPressed: () {
+                  setState(() {
+                    customWorkoutsCards.add(
+                        TodaysWorkoutCustomeWorkoutCard(onCancel: (refrence) {
+                      var index = customWorkoutsCards.indexOf(refrence);
+                      setState(() {
+                        customWorkoutsCards.removeAt(index);
+                      });
+                    }, onSave: (name, sets, reps, weight, refrence) {
+                      //TODO: SAVE workout
+                    }));
+                  });
+                },
+                child: const Text("Add Cutom Workout"),
+              ),
+            ],
           );
         }
         return Container();

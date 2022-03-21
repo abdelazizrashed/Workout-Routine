@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_routine/features/workout_routine/models/models.dart';
-import 'package:workout_routine/features/workout_routine/ui/pages/pages.dart';
+
+import '../widgets/widgets.dart';
 
 class ViewRoutinePage extends StatelessWidget {
   final RoutineModel routine;
