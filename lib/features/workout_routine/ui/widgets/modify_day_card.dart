@@ -25,26 +25,21 @@ class _ModifyDayCardState extends State<ModifyDayCard> {
 
   // List<WorkoutCardController> workoutCardControllers = [];
   // var cs = widget.dayCardController.workoutCardControllers
-  List<WorkoutCard> workoutCards = [];
+  List<Widget> workoutCards = [];
   @override
   void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    widget.dayCardController = DayCardController(
-        dayName: widget.dayModel.dayName,
-        dayType: widget.dayModel.dayType,
-        workoutCardControllers: []);
     isRest = widget.dayModel.dayType == DayType.rest;
     dayNameController.text = widget.dayModel.dayName;
+    widget.dayCardController.dayName = widget.dayModel.dayName;
+    widget.dayCardController.dayType = widget.dayModel.dayType;
+    widget.dayCardController.workoutCardControllers = [];
     for (var _workout in widget.dayModel.workouts) {
       var controller = WorkoutCardController();
       setState(() {
         workoutCards.add(
-          WorkoutCard(
+          ModifyRoutineWorkoutCard(
             workoutCardController: controller,
+            workout: _workout,
             deleteCardCallback: (workoutController) {
               setState(() {
                 var index = widget.dayCardController.workoutCardControllers
@@ -55,12 +50,16 @@ class _ModifyDayCardState extends State<ModifyDayCard> {
             },
           ),
         );
-        // widget.dayCardController.workoutCardControllers
-        //     .add(controller);
-        // widget.dayCardController.workoutCardControllers =
-        //     widget.dayCardController.workoutCardControllers;
+        widget.dayCardController.workoutCardControllers.add(controller);
+        widget.dayCardController.workoutCardControllers =
+            widget.dayCardController.workoutCardControllers;
       });
     }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       child: Column(
         children: [
