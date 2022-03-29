@@ -15,6 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_launcher_icons: ^0.9.2
   flutter_slidable: ^1.2.0
   intl: ^0.17.0
   localstore: ^1.2.3
@@ -23,9 +24,19 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.1.2+1
+
+flutter_native_splash:
+  color: "#fff2e2"
+  image: assets/splash.png
+
+flutter_icons:
+  image_path: "assets/logo.png"
+  android: true
+  ios: true
 
 flutter:
   assets:
-    - "assets/imgs/empty_img.jpg"
+    - assets/imgs/empty_img.jpg
 
   uses-material-design: true
