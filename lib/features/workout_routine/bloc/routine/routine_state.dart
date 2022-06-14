@@ -1,6 +1,5 @@
 part of 'routine_bloc.dart';
 
-@immutable
 abstract class RoutineState extends Equatable {
   const RoutineState();
 
@@ -13,7 +12,6 @@ class RoutineLoading extends RoutineState {}
 class RoutineIdle extends RoutineState {}
 
 class RoutineFailure extends RoutineState {}
-
 
 class RoutinesLoaded extends RoutineState {
   final List<RoutineModel> routines;

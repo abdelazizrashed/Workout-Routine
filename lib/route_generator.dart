@@ -4,8 +4,6 @@ import 'features/workout_routine/ui/pages/pages.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    //get the argument that have been passed with the route
-
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(builder: (_) => const HomePage());
@@ -22,6 +20,5 @@ class RouteGenerator {
       default:
         return MaterialPageRoute(builder: (_) => const HomePage());
     }
-    // throw Exception("No Route");
   }
 }

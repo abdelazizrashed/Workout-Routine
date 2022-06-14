@@ -30,97 +30,7 @@ class _ModifyRoutineState extends State<ModifyRoutinePage> {
   @override
   Widget build(BuildContext context) {
     nameController.text = widget.routine.name;
-    // var controllers = [];
-    // for (var _workout in widget.routine.sat.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // satController = DayCardController(
-    //     dayName: widget.routine.sat.dayName,
-    //     dayType: widget.routine.sat.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.sun.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // sunController = DayCardController(
-    //     dayName: widget.routine.sun.dayName,
-    //     dayType: widget.routine.sun.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.mon.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // monController = DayCardController(
-    //     dayName: widget.routine.mon.dayName,
-    //     dayType: widget.routine.mon.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.tue.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // tueController = DayCardController(
-    //     dayName: widget.routine.tue.dayName,
-    //     dayType: widget.routine.tue.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.wed.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // wedController = DayCardController(
-    //     dayName: widget.routine.wed.dayName,
-    //     dayType: widget.routine.wed.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.thu.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // thuController = DayCardController(
-    //     dayName: widget.routine.thu.dayName,
-    //     dayType: widget.routine.thu.dayType,
-    //     workoutCardControllers: controllers);
-    // controllers = [];
-    // for (var _workout in widget.routine.fri.workouts) {
-    //   controllers.add(WorkoutCardController(
-    //     name: _workout.name,
-    //     sets: _workout.sets,
-    //     reps: _workout.reps,
-    //     imgPath: _workout.imgPath,
-    //   ));
-    // }
-    // friController = DayCardController(
-    //     dayName: widget.routine.fri.dayName,
-    //     dayType: widget.routine.fri.dayType,
-    //     workoutCardControllers: controllers);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -198,7 +108,6 @@ class _ModifyRoutineState extends State<ModifyRoutinePage> {
                   padding: const EdgeInsets.all(20),
                   child: OutlinedButton(
                     onPressed: () {
-                      // var routine = RoutineModel(
                       var newRoutine = widget.routine.copyWith(
                         name_: nameController.text,
                         sat_: satController.toDayModel(),

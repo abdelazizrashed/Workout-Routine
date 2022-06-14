@@ -53,10 +53,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
           ),
           TextField(
             keyboardType: TextInputType.number,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly
-            ], // Only numbers can be entered
-
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             onChanged: (value) {
               widget.workoutCardController.sets = int.parse(value);
             },
@@ -67,10 +64,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
           ),
           TextField(
             keyboardType: TextInputType.number,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly
-            ], // Only numbers can be entered
-
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             onChanged: (value) {
               widget.workoutCardController.reps = int.parse(value);
             },
@@ -92,7 +86,6 @@ class _WorkoutCardState extends State<WorkoutCard> {
                           allowedExtensions: ['jpg', 'png', 'jpeg', "svg"],
                         );
                         if (result != null) {
-                          // print(result.files.first.);
                           setState(() {
                             image = result.files.first;
                             widget.workoutCardController.imgPath =
@@ -111,7 +104,6 @@ class _WorkoutCardState extends State<WorkoutCard> {
                           allowedExtensions: ['jpg', 'png', 'jpeg', "svg"],
                         );
                         if (result != null) {
-                          // print(result.files.first.);
                           setState(() {
                             image = result.files.first;
                             widget.workoutCardController.imgPath =
@@ -145,7 +137,6 @@ class _WorkoutCardState extends State<WorkoutCard> {
                                     ],
                                   );
                                   if (result != null) {
-                                    // print(result.files.first.);
                                     setState(() {
                                       image = result.files.first;
                                       widget.workoutCardController.imgPath =

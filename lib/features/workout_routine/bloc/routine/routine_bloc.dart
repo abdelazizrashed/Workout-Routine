@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workout_routine/features/workout_routine/models/models.dart';
 import 'package:workout_routine/features/workout_routine/services/routine_services.dart';
 
@@ -40,8 +39,11 @@ class RoutineBloc extends Bloc<RoutineEvent, RoutineState> {
     Emitter<RoutineState> emit,
   ) async {
     emit(RoutineLoading());
-    var routines = await routineServices.deleteRoutine(event.id);
-    emit(RoutinesLoaded(routines));
+    await routineServices.deleteRoutine(event.id);
+    var routines = await routineServices.getRoutines();
+
+    emit(RoutinesLoaded(
+        routines.where((routine) => routine.id != event.id).toList()));
   }
 
   Future<FutureOr<void>> _onUpdateRoutineInLocalDBEvent(

@@ -4,7 +4,7 @@ import 'package:workout_routine/features/workout_routine/ui/widgets/widgets.dart
 
 // ignore: must_be_immutable
 class DayCard extends StatefulWidget {
-  late DayCardController dayCardController;
+  DayCardController dayCardController;
   final String day;
   DayCard({
     Key? key,
@@ -21,9 +21,13 @@ class _DayCardState extends State<DayCard> {
   TextEditingController dayNameController = TextEditingController();
   int noOfWorkouts = 0;
 
-  // List<WorkoutCardController> workoutCardControllers = [];
-  // var cs = widget.dayCardController.workoutCardControllers
   List<WorkoutCard> workoutCards = [];
+  @override
+  void initState() {
+    widget.dayCardController.workoutCardControllers = [];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -49,9 +53,6 @@ class _DayCardState extends State<DayCard> {
                 } else {
                   widget.dayCardController.dayType = DayType.workout;
                   widget.dayCardController.dayName = dayNameController.text;
-
-                  // widget.dayCardController.workoutCardControllers =
-                  //     workoutCardControllers;
                 }
               });
             },
@@ -92,15 +93,19 @@ class _DayCardState extends State<DayCard> {
                                 workoutCardController: controller,
                                 deleteCardCallback: (workoutController) {
                                   setState(() {
-                                    var index = widget.dayCardController.workoutCardControllers
+                                    var index = widget.dayCardController
+                                        .workoutCardControllers
                                         .indexOf(workoutController);
-                                    widget.dayCardController.workoutCardControllers.removeAt(index);
+                                    widget.dayCardController
+                                        .workoutCardControllers
+                                        .removeAt(index);
                                     workoutCards.removeAt(index);
                                   });
                                 },
                               ),
                             );
-                            widget.dayCardController.workoutCardControllers.add(controller);
+                            widget.dayCardController.workoutCardControllers
+                                .add(controller);
                             widget.dayCardController.workoutCardControllers =
                                 widget.dayCardController.workoutCardControllers;
                           });

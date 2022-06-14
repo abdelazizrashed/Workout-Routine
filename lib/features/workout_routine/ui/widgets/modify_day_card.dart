@@ -23,8 +23,6 @@ class _ModifyDayCardState extends State<ModifyDayCard> {
   TextEditingController dayNameController = TextEditingController();
   int noOfWorkouts = 0;
 
-  // List<WorkoutCardController> workoutCardControllers = [];
-  // var cs = widget.dayCardController.workoutCardControllers
   List<Widget> workoutCards = [];
   @override
   void initState() {
@@ -33,13 +31,13 @@ class _ModifyDayCardState extends State<ModifyDayCard> {
     widget.dayCardController.dayName = widget.dayModel.dayName;
     widget.dayCardController.dayType = widget.dayModel.dayType;
     widget.dayCardController.workoutCardControllers = [];
-    for (var _workout in widget.dayModel.workouts) {
+    for (var workout in widget.dayModel.workouts) {
       var controller = WorkoutCardController();
       setState(() {
         workoutCards.add(
           ModifyRoutineWorkoutCard(
             workoutCardController: controller,
-            workout: _workout,
+            workout: workout,
             deleteCardCallback: (workoutController) {
               setState(() {
                 var index = widget.dayCardController.workoutCardControllers

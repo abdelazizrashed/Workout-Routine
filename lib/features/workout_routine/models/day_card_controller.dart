@@ -18,6 +18,10 @@ class DayCardController {
     for (var controller in workoutCardControllers) {
       workouts.add(controller.toWorkoutModel());
     }
-    return DayModel(dayName: dayName, dayType: dayType, workouts: workouts);
+    return DayModel(
+      dayName: DayType.rest == dayType ? "Rest" : dayName,
+      dayType: dayType,
+      workouts: workouts,
+    );
   }
 }

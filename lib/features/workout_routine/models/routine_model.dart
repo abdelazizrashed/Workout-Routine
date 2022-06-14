@@ -39,6 +39,7 @@ class RoutineModel {
 
   Map<String, dynamic> toJson() {
     return {
+      "id": id,
       "name": name,
       "sat": sat.toJson(),
       "sun": sun.toJson(),

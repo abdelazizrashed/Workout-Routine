@@ -24,11 +24,11 @@ class RoutineServices {
   }
 
   Future<List<RoutineModel>> getRoutines() async {
-    var routinesJson = await db.collection('Routines').get();
+    var routinesJson = await Localstore.instance.collection('Routines').get();
     List<RoutineModel> routines = [];
     routinesJson?.forEach(
       (key, value) {
-        var id = key.replaceAll("\\Routines\\", "");
+        var id = key.replaceAll("/Routines/", "");
         value["id"] = id;
         routines.add(RoutineModel.fromJson(value));
       },
@@ -37,8 +37,10 @@ class RoutineServices {
     return routines;
   }
 
-  Future<List<RoutineModel>> deleteRoutine(String id) async {
-    await db.collection("Routines").doc(id).delete();
-    return await getRoutines();
+  Future<void> deleteRoutine(String id) async {
+    await db
+        .collection("Routines")
+        .doc(id.replaceAll("/Routines/", ""))
+        .delete();
   }
 }

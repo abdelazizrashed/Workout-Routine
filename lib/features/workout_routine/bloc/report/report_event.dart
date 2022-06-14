@@ -9,7 +9,7 @@ abstract class ReportEvent extends Equatable {
 
 class SaveWorkoutReportInLocalDBEvent extends ReportEvent {
   final DateTime day;
-  final  WorkoutReportModel workoutReport;
+  final WorkoutReportModel workoutReport;
 
   const SaveWorkoutReportInLocalDBEvent(this.day, this.workoutReport);
 
@@ -18,7 +18,7 @@ class SaveWorkoutReportInLocalDBEvent extends ReportEvent {
 }
 
 class GetDayReportFromLocalDB extends ReportEvent {
-    final DateTime day;
+  final DateTime day;
   const GetDayReportFromLocalDB(this.day);
 
   @override

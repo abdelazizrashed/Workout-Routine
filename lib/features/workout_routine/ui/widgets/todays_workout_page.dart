@@ -55,8 +55,8 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                     items:
                         routines.map<DropdownMenuItem<RoutineModel>>((routine) {
                       return DropdownMenuItem(
-                        child: Text(routine.name),
                         value: routine,
+                        child: Text(routine.name),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -106,16 +106,16 @@ class _TodaysWorkoutPageState extends State<TodaysWorkoutPage> {
                           workoutsCards.add(
                             TodaysWorkoutWorkoutCard(
                               workout: workout,
-                              onCancel: (_workout) {
-                                var index = workouts.indexOf(_workout);
+                              onCancel: (workout) {
+                                var index = workouts.indexOf(workout);
                                 setState(() {
                                   workoutsCards.removeAt(index);
                                   workouts.removeAt(index);
                                 });
                               },
-                              onSave: (sets, reps, weight, _workout) {
+                              onSave: (sets, reps, weight, workout) {
                                 var workoutReport = WorkoutReportModel(
-                                  name: _workout.name,
+                                  name: workout.name,
                                   sets: sets,
                                   reps: reps,
                                   weight: weight,

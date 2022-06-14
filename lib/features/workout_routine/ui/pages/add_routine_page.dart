@@ -79,14 +79,14 @@ class _AddRoutinePageState extends State<AddRoutinePage>
                   child: OutlinedButton(
                     onPressed: () {
                       var routine = RoutineModel(
-                        name:nameController.text,
-                        sat:satController.toDayModel(),
-                        sun:sunController.toDayModel(),
-                        mon:monController.toDayModel(),
-                        tue:tueController.toDayModel(),
-                        wed:wedController.toDayModel(),
-                        thu:thuController.toDayModel(),
-                        fri:friController.toDayModel(),
+                        name: nameController.text,
+                        sat: satController.toDayModel(),
+                        sun: sunController.toDayModel(),
+                        mon: monController.toDayModel(),
+                        tue: tueController.toDayModel(),
+                        wed: wedController.toDayModel(),
+                        thu: thuController.toDayModel(),
+                        fri: friController.toDayModel(),
                       );
                       BlocProvider.of<RoutineBloc>(context).add(
                         SaveRoutineInLocalDBEvent(routine),
